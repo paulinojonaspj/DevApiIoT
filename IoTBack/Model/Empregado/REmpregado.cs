@@ -7,34 +7,45 @@ namespace IOTBack.Model.Empregado
     public class REmpregado : IEmpregado
     {
         private readonly ConnectionContext _context = new ConnectionContext();
-        void IEmpregado.Add(Empregado empregado)
+      async Task<bool> IEmpregado.Add(Empregado empregado)
         {
-
-            _context.Empregado.Add(empregado);
-
-            _context.SaveChanges();
-
+          await _context.Empregado.AddAsync(empregado);
+          return await _context.SaveChangesAsync()>0;
         }
 
-        List<Empregado> IEmpregado.GetAll()
+       async Task<bool> IEmpregado.Alterar(Empregado empregado)
         {
-            return _context.Empregado.ToList();
+            _context.Entry(empregado).State = EntityState.Modified;
+            return await _context.SaveChangesAsync()>0;
         }
 
-        Empregado? IEmpregado.Get(int id)
+        async Task<bool> IEmpregado.Remover(Empregado empregado)
         {
-            return _context.Empregado.Find(id);
+             _context.Empregado.Remove(empregado);
+            return await _context.SaveChangesAsync() > 0;
         }
 
-        List<Empregado> IEmpregado.GetPaginacao(int pageNumber, int pageQuantity)
+        public async Task<IEnumerable<Empregado>> GetAll()
         {
-            return _context.Empregado.Skip(pageNumber * pageQuantity).Take(pageQuantity).ToList();
+            return await _context.Empregado.ToListAsync();
+        }
+
+        async Task<Empregado?> IEmpregado.Get(int id)
+        {
+            return await _context.Empregado.FindAsync(id);
+        }
+
+       public async Task<IEnumerable<Empregado>> GetPaginacao(int pageNumber, int pageQuantity)
+        {
+            return await _context.Empregado.Skip(pageNumber * pageQuantity).Take(pageQuantity).ToListAsync();
         }
 
         //DTO sem Mapping
-        List<EmpregadoDTO> IEmpregado.GetDTO()
+        async Task<IEnumerable<EmpregadoDTO>> IEmpregado.GetDTO()
         {
-            return _context.Empregado.Select(b => new EmpregadoDTO(b.Nome ?? "", b.Email ?? "")).ToList();
+            return await _context.Empregado.Select(b => new EmpregadoDTO(b.Nome ?? "", b.Email ?? "")).ToListAsync();
         }
+
+        
     }
 }

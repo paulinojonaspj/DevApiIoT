@@ -8,7 +8,7 @@ namespace IOTBack.Configuracao
     {
         public DomainToDTOMapping()
         {
-            CreateMap<Empregado, EmpregadoDTO>();
+            CreateMap<Empregado, EmpregadoDTO>().ReverseMap(); //Reverse permite receber ou enviar nos dois lados
 
             //Se tiver atributo com nomes diferentes 
             //CreateMap<Empregado, EmpregadoDTO>().ForMember(dest => dest.NomeDTO, map => map.MapFrom(orig => orig.nomeEntidade));

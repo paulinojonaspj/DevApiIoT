@@ -1,4 +1,5 @@
-﻿using IOTBack.Model.Empregado;
+﻿using IOTBack.Configuracao;
+using IOTBack.Model.Empregado;
 using Microsoft.EntityFrameworkCore;
 
 namespace IOTBack.Infraestrutura
@@ -7,7 +8,12 @@ namespace IOTBack.Infraestrutura
     {
         public DbSet<Empregado> Empregado { get; set; }
 
+        IConfiguration configuration = new ConfigurationBuilder()
+            .SetBasePath(AppDomain.CurrentDomain.BaseDirectory)
+            .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
+            .Build();
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) =>
-            optionsBuilder.UseSqlServer("Server=94.46.180.24;Database=acessofa_iot;User Id=acessofa;Password=@K?1q7Q8vW2Ufo;TrustServerCertificate=true;");
+            optionsBuilder.UseSqlServer(Key.Descriptografar(configuration["conexao:stringConnection"]));
     }
 }

@@ -4,14 +4,18 @@ namespace IOTBack.Model.Empregado
 {
     public interface IEmpregado
     {
-        void Add(Empregado empregado);
+        Task<bool> Add(Empregado empregado);
+        Task<bool> Remover(Empregado empregado);
+        Task<bool> Alterar(Empregado empregado);
 
-        List<Empregado> GetAll();
 
-        List<EmpregadoDTO> GetDTO();
+        //Tudo que retorna recomenda-se utilizar Task async
+        Task<IEnumerable<Empregado>> GetAll();
 
-        Empregado? Get(int id);
+        Task<IEnumerable<EmpregadoDTO>> GetDTO();
 
-        List<Empregado> GetPaginacao(int pageNumber, int pageQuantity);
+        Task<Empregado?> Get(int id);
+
+        Task<IEnumerable<Empregado>> GetPaginacao(int pageNumber, int pageQuantity);
     }
 }

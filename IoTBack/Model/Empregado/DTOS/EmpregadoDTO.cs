@@ -6,7 +6,6 @@
         public string? Nome { get; set; }
         public string? Email { get; set; }
 
-
         public EmpregadoDTO(string nome, string email)
         {
             Nome = nome;
