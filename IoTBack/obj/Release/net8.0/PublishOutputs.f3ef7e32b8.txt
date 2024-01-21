@@ -9,6 +9,7 @@ C:\PROJETO\Repositorios\api-iot\AutoMapper.dll
 C:\PROJETO\Repositorios\api-iot\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
 C:\PROJETO\Repositorios\api-iot\Azure.Core.dll
 C:\PROJETO\Repositorios\api-iot\Azure.Identity.dll
+C:\PROJETO\Repositorios\api-iot\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 C:\PROJETO\Repositorios\api-iot\Microsoft.Bcl.AsyncInterfaces.dll
 C:\PROJETO\Repositorios\api-iot\Microsoft.Data.SqlClient.dll
 C:\PROJETO\Repositorios\api-iot\Microsoft.EntityFrameworkCore.dll

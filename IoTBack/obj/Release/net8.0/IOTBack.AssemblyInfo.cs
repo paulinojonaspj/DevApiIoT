@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("IOTBack")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+16ddb1ada9e0dd8c773f162c359ea4edf4b96a48")]
 [assembly: System.Reflection.AssemblyProductAttribute("IOTBack")]
 [assembly: System.Reflection.AssemblyTitleAttribute("IOTBack")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
