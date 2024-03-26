@@ -1,41 +1,39 @@
 using IOTBack.Configuracao;
+using IOTBack.Infraestrutura;
+using IOTBack.Model.Consumo;
 using IOTBack.Model.Empregado;
+using IOTBack.Model.Utilizador;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.JsonWebTokens;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using System.Configuration;
 using System.IdentityModel.Tokens.Jwt;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllers();
-
-
+ 
 //O que adicionei #############################
 builder.Services.AddAutoMapper(typeof(DomainToDTOMapping));
 builder.Services.AddTransient<IEmpregado, REmpregado>();
+builder.Services.AddTransient<IUtilizador, RUtilizador>();
+builder.Services.AddTransient<IConsumo, RConsumo>();
 
 
+// No método ConfigureServices
+builder.Services.AddSingleton<SmsService>();
+ 
 //Para ter acesso as variáveis do json
 IConfiguration configuration = new ConfigurationBuilder()
             .SetBasePath(AppDomain.CurrentDomain.BaseDirectory)
             .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
             .Build();
 
-//Cors, permitir origens
-builder.Services.AddCors(options =>
-{
-    options.AddPolicy(name: "Mypolicy",
-        policy =>
-        {
-            policy.WithOrigins(configuration["AllowedHosts"].Split(";")).AllowAnyHeader().AllowAnyMethod();
-        }
-        );
-});
-
-
+ 
 //Token
 var key = Encoding.ASCII.GetBytes(Key.Secret);
 builder.Services.AddAuthentication(x => {
@@ -50,11 +48,11 @@ x.RequireHttpsMetadata = false;
     {
         ValidateIssuerSigningKey = true,
         IssuerSigningKey = new SymmetricSecurityKey(key),
-        ValidateIssuer = true,
-        ValidateAudience = true,
+        ValidateIssuer = false,
+        ValidateAudience = false,
         ValidateLifetime = true,
-        ValidIssuer = configuration["jwt:issuer"],
-        ValidAudience = configuration["jwt:audiente"],
+        ValidIssuer = configuration["jwt:issuer"],  //Quem valida
+        ValidAudience = configuration["jwt:audiente"],  // Que acede
         ClockSkew = TimeSpan.Zero
     };
 
@@ -73,6 +71,7 @@ builder.Services.AddSwaggerGen(c =>
             Type = SecuritySchemeType.ApiKey,
             Scheme = "Bearer"
     });
+  
 
     c.AddSecurityRequirement(new OpenApiSecurityRequirement()
     {
@@ -109,9 +108,18 @@ else
     app.UseExceptionHandler("/error");
 }
 
-app.UseCors("MyPolicy");
+//app.UseHttpsRedirection();
 
-app.UseHttpsRedirection();
+//app.UseStaticFiles();
+app.UseRouting();
+
+app.UseCors(builder =>
+{
+    builder.AllowAnyOrigin().SetIsOriginAllowed(origin => true)
+                   .AllowAnyMethod()
+                   .AllowAnyHeader();
+                   
+});
 
 app.UseAuthorization();
 

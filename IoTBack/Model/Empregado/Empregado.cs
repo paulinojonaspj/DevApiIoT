@@ -2,7 +2,7 @@
 
 namespace IOTBack.Model.Empregado
 {
-    [Table("Empregado")]
+    [Table("empregado")]
     public class Empregado
     {
         public int Id { get;  private set; }

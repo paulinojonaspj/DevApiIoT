@@ -1,0 +1,562 @@
+[
+  {
+    "ContainingType": "IOTBack.Controllers.AuthController",
+    "Method": "Auth",
+    "RelativePath": "api/v1/auth",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "user",
+        "Type": "IOTBack.Model.Utilizador.AuthForm",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "IOTBack.Controllers.AuthController",
+    "Method": "GerarPw",
+    "RelativePath": "api/v1/auth/gerarpw",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "password",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "IOTBack.Controllers.AuthController",
+    "Method": "Verificar",
+    "RelativePath": "api/v1/auth/Verificar",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "senha",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "password",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "IOTBack.Controllers.Bsmart",
+    "Method": "GetObjetivos",
+    "RelativePath": "api/v1/bsmart/objetivos",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[IOTBack.Model.Objetivo.Objetivo, IOTBack, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "IOTBack.Controllers.Bsmart",
+    "Method": "Alterar",
+    "RelativePath": "api/v1/bsmart/objetivos",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "entidade",
+        "Type": "IOTBack.Model.Objetivo.Objetivo",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Boolean",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "IOTBack.Controllers.ConsumoController",
+    "Method": "Add",
+    "RelativePath": "api/v1/consumo",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "view",
+        "Type": "IOTBack.Model.Consumo.FConsumo",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "IOTBack.Controllers.ConsumoController",
+    "Method": "Remover",
+    "RelativePath": "api/v1/consumo",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "IOTBack.Controllers.ConsumoController",
+    "Method": "Get",
+    "RelativePath": "api/v1/consumo/{id}/{pageNumber}/{pageQuantity}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "pageNumber",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "pageQuantity",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "IOTBack.Controllers.EmpregadoController",
+    "Method": "Add",
+    "RelativePath": "api/v1/empregado",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Nome",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Email",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Idade",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Foto",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "IOTBack.Controllers.EmpregadoController",
+    "Method": "GetAll",
+    "RelativePath": "api/v1/empregado",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "IOTBack.Controllers.EmpregadoController",
+    "Method": "Remover",
+    "RelativePath": "api/v1/empregado",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "IOTBack.Controllers.EmpregadoController",
+    "Method": "Get",
+    "RelativePath": "api/v1/empregado/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "IOTBack.Controllers.EmpregadoController",
+    "Method": "DownloadFotoAsync",
+    "RelativePath": "api/v1/empregado/{id}/download",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "IOTBack.Controllers.EmpregadoController",
+    "Method": "GetIdDTO",
+    "RelativePath": "api/v1/empregado/{id}/dto",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "IOTBack.Controllers.EmpregadoController",
+    "Method": "Teste",
+    "RelativePath": "api/v1/empregado/api/v1/teste",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "IOTBack.Controllers.EmpregadoController",
+    "Method": "GetDTO",
+    "RelativePath": "api/v1/empregado/dto",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "IOTBack.Controllers.EmpregadoController",
+    "Method": "GetPaginacao",
+    "RelativePath": "api/v1/empregado/paginacao",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "pageNumber",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "pageQuantity",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "IOTBack.Controllers.JwtController",
+    "Method": "Decrypt",
+    "RelativePath": "api/v1/jwt/decrypt",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "texto",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "IOTBack.Controllers.JwtController",
+    "Method": "Encript",
+    "RelativePath": "api/v1/jwt/encript",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "texto",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "IOTBack.Controllers.JwtController",
+    "Method": "gerarChaves",
+    "RelativePath": "api/v1/jwt/gerarChaves",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "IOTBack.Controllers.JwtController",
+    "Method": "Teste",
+    "RelativePath": "api/v1/jwt/teste",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "IOTBack.Controllers.SmsController",
+    "Method": "SendSms",
+    "RelativePath": "api/v1/Sms/send",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "IOTBack.Controllers.SmsRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "IOTBack.Controllers.UtilizadorController",
+    "Method": "Add",
+    "RelativePath": "api/v1/utilizador",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Ficheiro",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      },
+      {
+        "Name": "Nome",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Email",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Telemovel",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "CodigoPostal",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Morada",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "CasaNumero",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "OperadoraAgua",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "PrecoFixoAgua",
+        "Type": "System.Single",
+        "IsRequired": false
+      },
+      {
+        "Name": "PrecoAgua",
+        "Type": "System.Single",
+        "IsRequired": false
+      },
+      {
+        "Name": "OperadoraEnergia",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "TarifaEnergia",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "PotenciaEnergia",
+        "Type": "System.Single",
+        "IsRequired": false
+      },
+      {
+        "Name": "PrecoFixoEnergia",
+        "Type": "System.Single",
+        "IsRequired": false
+      },
+      {
+        "Name": "PrecoP1Energia",
+        "Type": "System.Single",
+        "IsRequired": false
+      },
+      {
+        "Name": "PrecoP2Energia",
+        "Type": "System.Single",
+        "IsRequired": false
+      },
+      {
+        "Name": "PrecoP3Energia",
+        "Type": "System.Single",
+        "IsRequired": false
+      },
+      {
+        "Name": "HorarioDeP1Energia",
+        "Type": "System.TimeSpan",
+        "IsRequired": false
+      },
+      {
+        "Name": "HorarioAteP1Energia",
+        "Type": "System.TimeSpan",
+        "IsRequired": false
+      },
+      {
+        "Name": "HorarioDeP2Energia",
+        "Type": "System.TimeSpan",
+        "IsRequired": false
+      },
+      {
+        "Name": "HorarioAteP2Energia",
+        "Type": "System.TimeSpan",
+        "IsRequired": false
+      },
+      {
+        "Name": "HorarioDeP3Energia",
+        "Type": "System.TimeSpan",
+        "IsRequired": false
+      },
+      {
+        "Name": "HorarioAteP3Energia",
+        "Type": "System.TimeSpan",
+        "IsRequired": false
+      },
+      {
+        "Name": "PalavraPasse",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "IOTBack.Controllers.UtilizadorController",
+    "Method": "Remover",
+    "RelativePath": "api/v1/utilizador",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "IOTBack.Controllers.UtilizadorController",
+    "Method": "Get",
+    "RelativePath": "api/v1/utilizador/{id}/{pageNumber}/{pageQuantity}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "pageNumber",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "pageQuantity",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "IOTBack.Controllers.UtilizadorController",
+    "Method": "DownloadFotoAsync",
+    "RelativePath": "api/v1/utilizador/{id}/download",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]

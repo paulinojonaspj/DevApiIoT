@@ -1,4 +1,5 @@
 ﻿using IOTBack.Model.Empregado;
+using IOTBack.Model.Utilizador;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
@@ -8,7 +9,7 @@ namespace IOTBack.Configuracao
 {
     public class Token
     {
-        public static object GerarToken(Empregado dado)
+        public static object GerarToken(Utilizador dado)
         {
             var key = Encoding.ASCII.GetBytes(Key.Secret);
 
@@ -16,7 +17,7 @@ namespace IOTBack.Configuracao
             {
                 Subject = new System.Security.Claims.ClaimsIdentity(new Claim[]
                 {
-                        new Claim("empregadoId",dado.Id.ToString()),
+                        new Claim("utilizadorId",dado.Id.ToString()),
                 }),
                 Expires = DateTime.UtcNow.AddHours(3),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
@@ -26,7 +27,7 @@ namespace IOTBack.Configuracao
             var token = tokenHandeler.CreateToken(tokenConfig);
             var tokenString = tokenHandeler.WriteToken(token);
 
-            return new { token = tokenString };
+            return  tokenString;
 
         }
     }
